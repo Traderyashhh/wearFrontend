@@ -18,6 +18,7 @@ import Verify from './pages/Verify'
 import Delivery from './pages/Delivery'
 import Privacy from './pages/Privacy'
 
+
 const App = () => {
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
@@ -37,6 +38,7 @@ const App = () => {
         <Route path='/verify' element={<Verify />} />
         <Route path="/delivery" element={<Delivery />} />
         <Route path="/privacy" element={<Privacy />} />
+      
       </Routes>
       <Footer />
     </div>
