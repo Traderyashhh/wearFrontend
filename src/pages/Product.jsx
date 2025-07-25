@@ -6,7 +6,7 @@ import RelatedProducts from '../components/RelatedProducts';
 
 const Product = () => {
   const { productId } = useParams();
-  const navigate = useNavigate(); // ✅ new line
+  const navigate = useNavigate();
   const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState('');
@@ -58,14 +58,24 @@ const Product = () => {
           </div>
           <p className='mt-5 text-3xl font-medium'>{currency}{productData.price}</p>
           <p className='mt-5 text-gray-500 md:w-4/5'>{productData.description}</p>
-          <div className='flex flex-col gap-4 my-8'>
-            <p>Select Size</p>
-            <div className='flex gap-2'>
-              {productData.sizes.map((item, index) => (
-                <button onClick={() => setSize(item)} className={`border py-2 px-4 bg-gray-100 ${item === size ? 'border-orange-500' : ''}`} key={index}>{item}</button>
-              ))}
+
+          {/* Size Selector */}
+          {productData.sizes?.length > 0 && (
+            <div className='flex flex-col gap-4 my-8'>
+              <p>Select Size</p>
+              <div className='flex gap-2'>
+                {productData.sizes.map((item, index) => (
+                  <button
+                    onClick={() => setSize(item)}
+                    className={`border py-2 px-4 bg-gray-100 ${item === size ? 'border-orange-500' : ''}`}
+                    key={index}
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Add to Cart Button */}
           <button
@@ -74,11 +84,11 @@ const Product = () => {
             ADD TO CART
           </button>
 
-          {/* Buy Now Button with Navigate */}
+          {/* Buy Now Button */}
           <button
             onClick={() => {
               addToCart(productData._id, size);
-              navigate("/place-order"); // ✅ navigation on click
+              navigate("/place-order");
             }}
             className='bg-white text-black m-2 px-8 py-3 text-sm rounded-md border border-black active:bg-gray-100'>
             BUY NOW
