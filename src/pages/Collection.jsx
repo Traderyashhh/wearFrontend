@@ -74,18 +74,19 @@ const Collection = () => {
           <p className='mb-3 text-sm font-medium'>CATEGORIES</p>
           <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
             <p className='flex gap-2'>
-              <input className='w-3' type="checkbox" value={'Earring'} onChange={toggleCategory} /> Earring
+              <input className='w-3' type="checkbox" value={'Earrings'} onChange={toggleCategory} /> Earrings
             </p>
             <p className='flex gap-2'>
               <input className='w-3' type="checkbox" value={'Bracelets'} onChange={toggleCategory} /> Bracelets
             </p>
             <p className='flex gap-2'>
-              <input className='w-3' type="checkbox" value={'Neckless'} onChange={toggleCategory} /> Neckless
+              <input className='w-3' type="checkbox" value={'Necklaces'} onChange={toggleCategory} /> Necklaces
             </p>
             <p className='flex gap-2'>
               <input className='w-3' type="checkbox" value={'Rings'} onChange={toggleCategory} /> Rings
             </p>
           </div>
+
         </div>
       </div>
 
@@ -94,7 +95,7 @@ const Collection = () => {
 
         <div className='flex justify-between text-base sm:text-2xl mb-4'>
           <Title text1={'ALL'} text2={'COLLECTIONS'} />
-          
+
           {/* Product Sort */}
           <select
             onChange={(e) => setSortType(e.target.value)}
